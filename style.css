@@ -27,14 +27,13 @@ body {
   color: #e55555;
 }
 
-.p1-u{
-    border-bottom:5px solid #556fe5;
+.p1-u {
+  border-bottom: 5px solid #556fe5;
 }
 
-.p2-u{
-    border-bottom:5px solid #e55555;
+.p2-u {
+  border-bottom: 5px solid #e55555;
 }
-
 
 .container {
   width: 60%;
@@ -64,8 +63,6 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  /* grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr); */
   gap: 25px;
   height: 100vh;
   padding: 10px;
@@ -99,4 +96,11 @@ body {
   z-index: 2;
   top: 0;
   background-color: white;
+}
+
+@media screen and (max-width: 920px) {
+  .card-box {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
 }
