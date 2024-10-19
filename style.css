@@ -9,6 +9,27 @@ body {
   background-color: black;
 }
 
+p{
+  color: inherit;
+}
+
+.win-tablo {
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  display: none;
+  p {
+    position: relative;
+
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
+
 .player-1,
 .player-2 {
   position: absolute;
