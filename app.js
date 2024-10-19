@@ -119,17 +119,28 @@ function showCards() {
 }
 
 let choosenCards = [];
-function rotateCard(index) {
-  cardItems[index].classList.add("rotate-card");
-  choosenCards.push(cardItems[index]);
+console.log(choosenCards.length);
 
-  if (choosenCards.length == 2) {
-    checkCards(choosenCards);
-    setTimeout(() => {
-      cardItems.forEach((card) => card.classList.remove("rotate-card"));
-      choosenCards = [];
-    }, 1000);
+function rotateCard(index, cardId) {
+  cardItems[index].classList.add("rotate-card");
+  if (choosenCards.length == 0) {
+    choosenCards.push(cardItems[index]);
   }
+  if (choosenCards.length == 1) {
+    if (choosenCards[0].getAttribute("data-index") != index) {
+      choosenCards.push(cardItems[index]);
+      console.log(choosenCards);
+      checkCards(choosenCards);
+      setTimeout(() => {
+        cardItems.forEach((card) => card.classList.remove("rotate-card"));
+        choosenCards = [];
+      }, 1000);
+    }
+  }
+
+  // if (choosenCards.length == 2) {
+
+  // }
 }
 
 function checkCards(arr) {
@@ -138,7 +149,6 @@ function checkCards(arr) {
     arr[1].style.visibility = "hidden";
     showTurn();
 
-    
     if (isFirstPlayer) {
       +firstPlayer.innerHTML++;
     } else {
@@ -180,7 +190,9 @@ const cardItems = document.querySelectorAll(".card");
 cardItems.forEach((card) => {
   card.addEventListener("click", (e) => {
     const index = e.currentTarget.getAttribute("data-index");
-    rotateCard(index);
+    const id = e.currentTarget.getAttribute("data-id");
+
+    rotateCard(index, id);
   });
 });
 console.log(cardItems);
